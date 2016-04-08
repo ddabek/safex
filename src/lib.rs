@@ -13,6 +13,7 @@ extern crate byteorder;
 #[macro_use(lazy_static)]
 extern crate lazy_static;
 extern crate bitcoin;
+extern crate num;
 
 #[macro_use]
 pub mod genesis;

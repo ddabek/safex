@@ -81,7 +81,7 @@ impl KeyPair {
 		};
 		Ok(out_keys)
 	}
-	///convert secret key to base64 for ready import to wallets
+	///convert secret key to base64 for ready import to wallets **not working currently**
 	pub fn private_key_towif(secret: SecretKey) -> String {
 		let mut format_sk = format!("{:?}", secret);
     	let string_len = format_sk.len() - 1;
