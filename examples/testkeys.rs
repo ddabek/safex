@@ -21,6 +21,8 @@ fn main() {
 	let the_string = KeyPair::address_base58(&the_keys.public);
 	print!("your Hash160 Public Key: {:?} \n", the_string);
 
+	let the_string = KeyPair::scriptaddress_base58(&the_keys.public);
+	print!("your ScriptHash Hash160 Public Key: {:?} \n", the_string);
 
 	let the_keys = KeyPair::from_secret(our_key.secret).unwrap();
 
