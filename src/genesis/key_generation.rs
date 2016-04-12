@@ -11,7 +11,7 @@ use rand::os::OsRng;
 use bitcoin::util::hash::Hash160;
 use bitcoin::util::address::Address;
 use bitcoin::network::constants::Network::Bitcoin;
-use bitcoin::util::address::Type::PubkeyHash;
+use bitcoin::util::address::Type::{ScriptHash, PubkeyHash};
 use bitcoin::util::hash::Sha256dHash;
 use bitcoin::util::base58::base58_encode_slice;
 
@@ -68,6 +68,7 @@ impl KeyPair {
 			public: pub_key,
 		})
 	}
+
 	///make a new random keypair
 	pub fn create() -> KeyResult {
 		let context = &SECP256K1;
@@ -81,7 +82,8 @@ impl KeyPair {
 		};
 		Ok(out_keys)
 	}
-	///convert secret key to base64 for ready import to wallets
+
+	///convert secret key to base64 for ready import to wallets **not working currently**
 	pub fn private_key_towif(secret: SecretKey) -> String {
 		let mut format_sk = format!("{:?}", secret);
     	let string_len = format_sk.len() - 1;
@@ -105,6 +107,7 @@ impl KeyPair {
 
     	//figure out how to use this with the wif process base58_encode_slice 
 	}
+
 	///convert secret key to base64 for ready import to wallets
 	pub fn private_key_tobase64(secret: SecretKey) -> String {
 		let mut format_sk = format!("{:?}", secret);
@@ -116,6 +119,7 @@ impl KeyPair {
     	let sec_key_base64 = format_sk.from_hex().ok().expect("error converting secret to base64").to_base64(STANDARD);
     	sec_key_base64
 	}
+
 	///keypair from base64 secret key
 	pub fn keypair_frombase64(secret: String) -> KeyPair {
 		let context = &SECP256K1;
@@ -127,7 +131,8 @@ impl KeyPair {
 			public: pub_key,
 		}
 	}
-	///extract a bitcoin valid address in base58
+
+	///extract a bitcoin valid address in base58 PubkeyHash
 	pub fn address_base58(public: &PublicKey) -> String {
 		let context = Secp256k1::without_caps();
 		let the_addr = Address { 
@@ -140,15 +145,28 @@ impl KeyPair {
   		return_this
 	}
 
+	///extract a bitcoin valid address in base58 PubkeyHash
+	pub fn scriptaddress_base58(public: &PublicKey) -> String {
+		let context = Secp256k1::without_caps();
+		let the_addr = Address { 
+      		ty: ScriptHash, 
+      		network: Bitcoin, 
+      		hash: Hash160::from_data(&public.serialize_vec(&context, false)[..]),
+  		};
+
+  		let return_this: String = format!("{:?}", the_addr);
+  		return_this
+	}
+
 	/// Returns public key
 	pub fn public(&self) -> &PublicKey {
 		&self.public
 	}
+
 	/// Returns private key
 	pub fn secret(&self) -> &SecretKey {
 		&self.secret
 	}
-	//pub fn publick_key(&self) -> &
 
 	/// Signs with a SecretKey and a message.
 	pub fn sign(secret: &SecretKey, message: Vec<u8>) -> Vec<u8> {
@@ -218,6 +236,9 @@ fn test() {
 
 	let the_string = KeyPair::address_base58(&the_keys.public);
 	print!("your Hash160 Public Key: {:?} \n", the_string);
+
+	let the_string = KeyPair::scriptaddress_base58(&the_keys.public);
+	print!("your ScriptHash Hash160 Public Key: {:?} \n", the_string);
 
 	let the_keys = KeyPair::from_secret(our_key.secret).unwrap();
 
