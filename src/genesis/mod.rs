@@ -7,9 +7,8 @@
 //!
 
 
-pub mod alias;
 pub mod create_coin;
 pub mod create_item;
 pub mod create_media;
 pub mod key_generation;
-pub mod btc_txn;
+pub mod txn_scripts;
