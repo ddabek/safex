@@ -2,6 +2,7 @@
 
 
 pub struct SafexCoin {
+	name: String,
 }
 
 
