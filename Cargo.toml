@@ -30,10 +30,6 @@ git = "https://github.com/safex/rust-secp256k1"
 git = "https://github.com/safex/safex-bitcoin"
 
 [[example]]
-name = "testscripts"
-path = "examples/testscripts.rs"
-
-[[example]]
 name = "testkeys"
 path = "examples/testkeys.rs"
 
