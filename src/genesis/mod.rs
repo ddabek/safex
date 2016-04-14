@@ -11,4 +11,3 @@ pub mod create_coin;
 pub mod create_item;
 pub mod create_media;
 pub mod key_generation;
-pub mod txn_scripts;
