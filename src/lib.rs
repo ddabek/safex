@@ -16,4 +16,4 @@ extern crate bitcoin;
 
 #[macro_use]
 pub mod genesis;
-pub mod escrow;
+pub mod contracts;
