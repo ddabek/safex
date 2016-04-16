@@ -2,7 +2,7 @@
 
 
 
-pub struct SafexItem {
+pub struct Item {
 	name: String, //name of the item
 	description: String, //text description of item
 	quantity: u64, //quantity of item at initialization
