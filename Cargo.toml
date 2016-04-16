@@ -43,3 +43,7 @@ path = "examples/import.rs"
 [[example]]
 name = "keys"
 path = "examples/keys.rs"
+
+[[example]]
+name = "testcoin"
+path = "examples/testcoin.rs"
