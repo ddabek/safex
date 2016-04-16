@@ -14,6 +14,11 @@ extern crate byteorder;
 extern crate lazy_static;
 extern crate bitcoin;
 
+
+//SAFE Related
+extern crate xor_name;
+extern crate sodiumoxide;
+
 #[macro_use]
 pub mod genesis;
 pub mod contracts;
