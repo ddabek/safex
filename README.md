@@ -32,7 +32,7 @@ multirust update stable && multirust default stable
 
 
 
-#### Generate keys
+#### Generate bitcoin keys
 
 ```bash
 # download and build safex/safex
