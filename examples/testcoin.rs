@@ -1,6 +1,6 @@
 extern crate safex;
 
-use safex::genesis::create_coin::*;
+use safex::genesis::coin::*;
 
 
 fn main() {
