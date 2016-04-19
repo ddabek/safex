@@ -12,6 +12,3 @@ pub struct Item {
 	keywords: Vec<String>, //vector of strings of keywords
 	documents: Vec<String>, //this is a vector of Files found in SAFE Network which could be any kind of files which will correspond to this item
 }
-
-
-

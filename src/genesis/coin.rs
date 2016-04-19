@@ -12,7 +12,8 @@ pub struct Coin {
 impl Coin {
 	pub fn new(
 		name: String,
-		quantity: u64) -> Coin {
+		quantity: u64) 
+		-> Coin {
 
 
 		let mut coin = Coin {
