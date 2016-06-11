@@ -1,5 +1,5 @@
 //! Definies the methods for forming a cryptocurrency for use in the safex protocol
-
+/*
 use xor_name::XorName;
 use sodiumoxide::crypto::hash::sha512;
 
@@ -35,4 +35,4 @@ fn test() {
 
 
 
-}
+}*/

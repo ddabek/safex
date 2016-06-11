@@ -61,10 +61,14 @@ fn main() {
 
 	let our_key = KeyPair::create().ok().expect("error");
 	
-	let the_secret = KeyPair::private_key_towif(our_key.secret);
+	let the_secret = KeyPair::private_key_base58(our_key.secret);
 	print!("your wif private key {:?} \n", the_secret);
 
+	let the_wif_pub = KeyPair::address_base58(&our_key.public);
+	println!("the wif pub {:?}", the_wif_pub);
 
-	let our_key = KeyPair::create().ok().expect("error");
+	let key_pair_back = KeyPair::keypair_frombase58wif(the_secret);
+	assert_eq!(key_pair_back.secret, our_key.secret);
+
 	println!("{:?}", our_key.secret);
 }

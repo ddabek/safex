@@ -22,8 +22,8 @@ rustc-serialize = "0.3"
 lazy_static = "0.1"
 byteorder = "0.3"
 
-xor_name = "~0.1.0"
-sodiumoxide = "~0.0.10"
+#xor_name = "~0.1.0"
+#sodiumoxide = "~0.0.10"
 
 [dependencies.secp256k1]
 git = "https://github.com/safex/rust-secp256k1"
