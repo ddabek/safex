@@ -39,6 +39,7 @@ fn base64() {
     let trimmed = input2.trim_right_matches("\n");
 	let new_keys = KeyPair::keypair_frombase64(trimmed.to_string());
 	println!("public key {:?}", KeyPair::address_base58(&new_keys.public));
+	println!("public key {:?}", KeyPair::address_base58compressed(&new_keys.public));
 }
 
 fn base58() {
@@ -50,4 +51,5 @@ fn base58() {
     let trimmed = input2.trim_right_matches("\n");
 	let new_keys = KeyPair::keypair_frombase58wif(trimmed.to_string());
 	println!("public key {:?}", KeyPair::address_base58(&new_keys.public));
+	println!("public key {:?}", KeyPair::address_base58compressed(&new_keys.public));
 }

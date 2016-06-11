@@ -147,6 +147,18 @@ impl KeyPair {
   		return_this
 	}
 
+	pub fn address_base58compressed(public: &PublicKey) -> String {
+		let context = Secp256k1::without_caps();
+		let the_addr = Address { 
+      		ty: PubkeyHash, 
+      		network: Bitcoin, 
+      		hash: Hash160::from_data(&public.serialize_vec(&context, true)[..]),
+  		};
+
+  		let return_this: String = format!("{:?}", the_addr);
+  		return_this
+	}
+
 	///extract a bitcoin valid address in base58 PubkeyHash
 	pub fn scriptaddress_base58(public: &PublicKey) -> String {
 		let context = Secp256k1::without_caps();
