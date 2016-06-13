@@ -51,7 +51,8 @@ impl From<::std::io::Error> for KeyError {
 		KeyError::Io(err)
 	}
 }
- 
+
+#[derive(RustcEncodable, RustcDecodable)]
 pub struct KeyPair {
 	pub public: PublicKey,
 	pub secret: SecretKey
