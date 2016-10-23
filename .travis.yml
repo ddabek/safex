@@ -1,11 +1,1 @@
 language: rust
-cache:
-  directories:
-    - $HOME/libsodium
-    - $HOME/elfutils
-install:
-  - curl -sSLO https://github.com/maidsafe/QA/raw/master/Bash%20Scripts/Travis/install_libsodium.sh
-  - . install_libsodium.sh
-script:
-#  - cd $TRAVIS_BUILD_DIR && cargo run --release --example ci_test > output.log
-#  - cat output.log
