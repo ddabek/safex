@@ -98,6 +98,19 @@ impl KeyPair {
 		basic
 	}
 
+	///private key to base58 wallet import format (WIF) Compressed
+	pub fn private_key_base58compressed(secret: SecretKey) -> String {
+		let context = Secp256k1::without_caps();
+		let the_priv = Privkey {
+			compressed: true,
+			network: Bitcoin,
+			key: secret,
+		};
+		//let return_this: String = format!("{:?}", the_priv);
+		let basic = the_priv.to_base58check();
+		basic
+	}
+
 	///keypair from base58 WIF
 	pub fn keypair_frombase58wif(secret: String) -> KeyPair {
 		let context = &SECP256K1;
@@ -148,6 +161,7 @@ impl KeyPair {
   		return_this
 	}
 
+	///extract address for compressed private key
 	pub fn address_base58compressed(public: &PublicKey) -> String {
 		let context = Secp256k1::without_caps();
 		let the_addr = Address { 
