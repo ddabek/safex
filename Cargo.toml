@@ -7,7 +7,7 @@ license = "GPL-3.0"
 name = "safex"
 readme = "README.md"
 repository = "https://github.com/safex/safex"
-version = "0.1.1"
+version = "0.1.2"
 
 
 [lib]
@@ -44,3 +44,7 @@ path = "examples/keys.rs"
 [[example]]
 name = "testcoin"
 path = "examples/testcoin.rs"
+
+[[bin]]
+name = "tohex"
+path = "examples/tohex.rs"
