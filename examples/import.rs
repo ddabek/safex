@@ -48,6 +48,11 @@ fn base58() {
     stdin2.lock().read_line(&mut input2).unwrap();
 
     let trimmed = input2.trim_right_matches("\n");
-	let new_keys = KeyPair::keypair_frombase58wif(trimmed.to_string());
-	println!("public key {:?}", KeyPair::address_base58(&new_keys.public));
+	if trimmed.len() == 52 {
+        let new_keys = KeyPair::keypair_frombase58wif(trimmed.to_string());
+        println!("public key {:?}", KeyPair::address_base58compressed(&new_keys.public));
+    } else {
+        let new_keys = KeyPair::keypair_frombase58wif(trimmed.to_string());
+        println!("public key {:?}", KeyPair::address_base58(&new_keys.public));
+    }
 }
